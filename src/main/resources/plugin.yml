@@ -1,0 +1,4 @@
+name: Template
+version: '${version}'
+main: com.boy0000.template.TemplatePlugin
+api-version: 1.19
