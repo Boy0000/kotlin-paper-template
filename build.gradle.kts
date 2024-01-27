@@ -2,10 +2,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.8.0"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("xyz.jpenilla.run-paper") version "2.0.1" // Adds runServer and runMojangMappedServer tasks for testing
-    id("net.minecrell.plugin-yml.bukkit") version "0.5.2" // Generates plugin.yml
+    id("org.jetbrains.kotlin.jvm") version "1.9.20"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("xyz.jpenilla.run-paper") version "2.2.0" // Adds runServer and runMojangMappedServer tasks for testing
+    id("net.minecrell.plugin-yml.bukkit") version "0.6.0" // Generates plugin.yml
     //id("io.papermc.paperweight.userdev") version "1.4.0" // NMS
 }
 
@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.19.3-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
 
     //paperDevBundle("1.19.3-R0.1-SNAPSHOT") //NMS
     implementation(kotlin("stdlib-jdk8"))
@@ -73,16 +73,8 @@ java {
 
 bukkit {
     load = net.minecrell.pluginyml.bukkit.BukkitPluginDescription.PluginLoadOrder.STARTUP
-    main = "com.boy0000.modernlightapi.ModernLightApi"
+    main = "com.boy0000.template.TemplatePLugin"
     version = "${project.version}"
-    apiVersion = "1.19"
+    apiVersion = "1.20"
     authors = listOf("Author")
-}
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-    jvmTarget = "1.8"
 }
